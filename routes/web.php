@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+Use App\Board;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $board = new Board(8, 8, 10);
+
+    return view('welcome', ['board' => $board]);
 });
 
 Auth::routes();
